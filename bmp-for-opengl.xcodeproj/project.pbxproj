@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		524F392A203514C100237938 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 524F3929203514C100237938 /* main.c */; };
+		524F39372035179900237938 /* glbmp.c in Sources */ = {isa = PBXBuildFile; fileRef = 524F39352035179900237938 /* glbmp.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		524F3926203514C100237938 /* bmp-for-opengl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "bmp-for-opengl"; sourceTree = BUILT_PRODUCTS_DIR; };
 		524F3929203514C100237938 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		524F39352035179900237938 /* glbmp.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = glbmp.c; sourceTree = "<group>"; };
+		524F39362035179900237938 /* glbmp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = glbmp.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				524F3929203514C100237938 /* main.c */,
+				524F39352035179900237938 /* glbmp.c */,
+				524F39362035179900237938 /* glbmp.h */,
 			);
 			path = "bmp-for-opengl";
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				524F39372035179900237938 /* glbmp.c in Sources */,
 				524F392A203514C100237938 /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
