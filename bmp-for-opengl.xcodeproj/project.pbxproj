@@ -9,17 +9,21 @@
 /* Begin PBXBuildFile section */
 		524F392A203514C100237938 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 524F3929203514C100237938 /* main.c */; };
 		524F39372035179900237938 /* glbmp.c in Sources */ = {isa = PBXBuildFile; fileRef = 524F39352035179900237938 /* glbmp.c */; };
+		524F393A2035529D00237938 /* alpha.bmp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 524F39392035529300237938 /* alpha.bmp */; };
+		524F393B203552A200237938 /* test2.bmp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 524F39382035528A00237938 /* test2.bmp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		524F3924203514C100237938 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
+			buildActionMask = 12;
+			dstPath = "";
 			dstSubfolderSpec = 0;
 			files = (
+				524F393B203552A200237938 /* test2.bmp in CopyFiles */,
+				524F393A2035529D00237938 /* alpha.bmp in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -28,6 +32,8 @@
 		524F3929203514C100237938 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		524F39352035179900237938 /* glbmp.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = glbmp.c; sourceTree = "<group>"; };
 		524F39362035179900237938 /* glbmp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = glbmp.h; sourceTree = "<group>"; };
+		524F39382035528A00237938 /* test2.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = test2.bmp; sourceTree = "<group>"; };
+		524F39392035529300237938 /* alpha.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = alpha.bmp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,11 +66,21 @@
 		524F3928203514C100237938 /* bmp-for-opengl */ = {
 			isa = PBXGroup;
 			children = (
+				524F393C203552FF00237938 /* test_images */,
 				524F3929203514C100237938 /* main.c */,
 				524F39352035179900237938 /* glbmp.c */,
 				524F39362035179900237938 /* glbmp.h */,
 			);
 			path = "bmp-for-opengl";
+			sourceTree = "<group>";
+		};
+		524F393C203552FF00237938 /* test_images */ = {
+			isa = PBXGroup;
+			children = (
+				524F39382035528A00237938 /* test2.bmp */,
+				524F39392035529300237938 /* alpha.bmp */,
+			);
+			path = test_images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
