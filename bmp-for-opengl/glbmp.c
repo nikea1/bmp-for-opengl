@@ -15,8 +15,13 @@ glBMP initGLBMP(char* input){
     
     FILE *fp;
     glBMP out;
+    out.height = 0;
+    out.width = 0;
+    out.pixelData = NULL;
     unsigned char buffer[56];
     int offset;
+    int test;
+    int test2;
     
     //open file
     fp = fopen(input,"rb+");
@@ -40,9 +45,9 @@ glBMP initGLBMP(char* input){
     
     //get img offest
     offset = *(int *)&buffer[0x0A];
-    
+    test = offset-14 >= 56 ? 56 : offset-14;
     //read offset - 14 bytes
-    if(fread(buffer, 1, offset - 14, fp) != offset - 14){
+    if(fread(buffer, 1, test, fp) != test){
         printf("Something went horrible wrong in retrieving image information! Abort abort!\n");
         exit(EXIT_FAILURE);
     }
@@ -55,15 +60,31 @@ glBMP initGLBMP(char* input){
         out.hasAlpha = *(int *)&buffer[0x42 - 0x0E];
     else
         out.hasAlpha = 0;
-    
+   
     out.width = *(int *)&buffer[0x12 - 0x0E];
     out.height = *(int *)&buffer[0x16 - 0x0E];
+    test = *(int *)&buffer[0x22 - 0x0E];
+    test2 = *(char *)&buffer[0x1C - 0x0E];
+    
+    if(test == 0){
+        test = ((out.width)*(test2)+31)/32*4*(out.height);
+    }
+    
+    out.pixelData = malloc(sizeof(test));
+    if(out.pixelData == NULL){
+        printf("Out of memory\n");
+        exit(EXIT_FAILURE);
+    }
+    
     
     //get width and height
-    if(fread(out.pixelData,1, (*(int *)&buffer[0x22 - 0x0E]), fp) != (*(int *)&buffer[0x22 - 0x0E])){
+    fseek(fp, offset, SEEK_SET);
+    if(fread(out.pixelData,1, test, fp) != test){
         printf("Something went horrible wrong in getting pixel data! Abort abort!\n");
         exit(EXIT_FAILURE);
     }
+    /**/
+    
     //return struct
     return out;
 }

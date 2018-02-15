@@ -18,7 +18,7 @@
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
 			dstPath = "";
-			dstSubfolderSpec = 0;
+			dstSubfolderSpec = 16;
 			files = (
 				524F393B203552A200237938 /* test2.bmp in CopyFiles */,
 				524F393A2035529D00237938 /* alpha.bmp in CopyFiles */,
