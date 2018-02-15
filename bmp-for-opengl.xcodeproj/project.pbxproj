@@ -69,6 +69,8 @@
 				524F393C203552FF00237938 /* test_images */,
 				524F3929203514C100237938 /* main.c */,
 				524F39352035179900237938 /* glbmp.c */,
+				524F39392035529300237938 /* alpha.bmp */,
+				524F39382035528A00237938 /* test2.bmp */,
 				524F39362035179900237938 /* glbmp.h */,
 			);
 			path = "bmp-for-opengl";
@@ -77,8 +79,6 @@
 		524F393C203552FF00237938 /* test_images */ = {
 			isa = PBXGroup;
 			children = (
-				524F39382035528A00237938 /* test2.bmp */,
-				524F39392035529300237938 /* alpha.bmp */,
 			);
 			path = test_images;
 			sourceTree = "<group>";

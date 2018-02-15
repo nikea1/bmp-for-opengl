@@ -46,7 +46,7 @@ glBMP initGLBMP(char* input){
         printf("Something went horrible wrong in retrieving image information! Abort abort!\n");
         exit(EXIT_FAILURE);
     }
-    
+    printf("Hello hello\n");
     //check size
     //if 56 bytes or up
     
