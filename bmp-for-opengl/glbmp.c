@@ -64,9 +64,10 @@ glBMP initGLBMP(char* input){
     out.width = *(int *)&buffer[0x12 - 0x0E];
     out.height = *(int *)&buffer[0x16 - 0x0E];
     test = *(int *)&buffer[0x22 - 0x0E];
-    test2 = *(char *)&buffer[0x1C - 0x0E];
+    
     
     if(test == 0){
+        test2 = *(char *)&buffer[0x1C - 0x0E];
         test = ((out.width)*(test2)+31)/32*4*(out.height);
     }
     
@@ -83,7 +84,16 @@ glBMP initGLBMP(char* input){
         printf("Something went horrible wrong in getting pixel data! Abort abort!\n");
         exit(EXIT_FAILURE);
     }
-    /**/
+    
+    if(out.hasAlpha == 0xFF){
+        for(int i = 1; i < test; i++){
+            if(i%4==0)
+                continue;
+            test2 = out.pixelData[i-1];
+            out.pixelData[i-1] = out.pixelData[i];
+            out.pixelData[i] = test2;
+        }//end of for loop
+    }//end of if statement
     
     //return struct
     return out;

@@ -15,7 +15,7 @@ int main(int argc, const char * argv[]) {
     int size;
     printf("Hello, World!\n");
     
-    hi = initGLBMP("alpha.bmp");
+    hi = initGLBMP("test2.bmp");
     
     printf("Height: %i\n", hi.height);
     printf("Width: %i\n", hi.width);
