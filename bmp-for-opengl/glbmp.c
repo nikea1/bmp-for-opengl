@@ -45,46 +45,52 @@ glBMP initGLBMP(char* input){
     
     //get img offest
     offset = *(int *)&buffer[0x0A];
+    
+    //cut bound offset to 56 if too big
     test = offset-14 >= 56 ? 56 : offset-14;
-    //read offset - 14 bytes
+    //read in image header data
     if(fread(buffer, 1, test, fp) != test){
         printf("Something went horrible wrong in retrieving image information! Abort abort!\n");
         exit(EXIT_FAILURE);
     }
-    printf("Hello hello\n");
-    //check size
-    //if 56 bytes or up
-    
+    //check for alpha mask
     if((offset - 14) >= 56)
         //get mask data
         out.hasAlpha = *(int *)&buffer[0x42 - 0x0E];
     else
         out.hasAlpha = 0;
-   
+    
+   //get width and height
     out.width = *(int *)&buffer[0x12 - 0x0E];
     out.height = *(int *)&buffer[0x16 - 0x0E];
+    
+    //get image size
     test = *(int *)&buffer[0x22 - 0x0E];
     
-    
+    //if image size not found get bpp and calculate image size
     if(test == 0){
+        //get bits per pixel
         test2 = *(char *)&buffer[0x1C - 0x0E];
         test = ((out.width)*(test2)+31)/32*4*(out.height);
     }
     
+    //allocate space for image data
     out.pixelData = malloc(sizeof(char)*test);
     if(out.pixelData == NULL){
         printf("Out of memory\n");
         exit(EXIT_FAILURE);
     }
     
-    
-    //get width and height
+    //mov file pointer to start of pixel data
     fseek(fp, offset, SEEK_SET);
+    
+    //read pixel into pixelData
     if(fread(out.pixelData,1, test, fp) != test){
         printf("Something went horrible wrong in getting pixel data! Abort abort!\n");
         exit(EXIT_FAILURE);
     }
     
+    //Move alpha value to the right spot in the data if alpha mask is present
     if(out.hasAlpha == 0xFF){
         for(int i = 1; i < test; i++){
             if(i%4==0)
