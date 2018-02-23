@@ -71,7 +71,7 @@ glBMP initGLBMP(char* input){
         test = ((out.width)*(test2)+31)/32*4*(out.height);
     }
     
-    out.pixelData = malloc(sizeof(test));
+    out.pixelData = malloc(sizeof(char)*test);
     if(out.pixelData == NULL){
         printf("Out of memory\n");
         exit(EXIT_FAILURE);
